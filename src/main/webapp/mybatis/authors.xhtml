@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>List of authors</title>
+
+    <h:outputStylesheet>
+        table, th, td {
+            border: solid 1px black;
+        }
+    </h:outputStylesheet>
+</h:head>
+
+<h:body>
+    <h1>List of authors</h1>
+    <nav>
+        <h:link outcome="/index">Home</h:link>
+    </nav>
+    <h:dataTable value="#{authorsMyBatis.allAuthors}" var="author">
+        <h:column>
+            <c:facet name="header">Id</c:facet>
+            #{author.id}
+        </h:column>
+        <h:column>
+            <c:facet name="header">Name</c:facet>
+            #{author.name}
+        </h:column>
+        <h:column>
+            <c:facet name="header">LastName</c:facet>
+            #{author.lastname}
+        </h:column>
+    </h:dataTable>
+    <nav>
+        <h:link outcome="create-author">Create a new author</h:link>
+    </nav>
+</h:body>
+
+</html>

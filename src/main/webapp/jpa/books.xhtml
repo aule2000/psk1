@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>List of books</title>
+
+    <h:outputStylesheet>
+        table, th, td {
+            border: solid 1px black;
+        }
+    </h:outputStylesheet>
+</h:head>
+
+<h:body>
+    <h1>List of books</h1>
+    <nav>
+        <h:link outcome="/index">Home</h:link>
+    </nav>
+    <h:dataTable value="#{booksJPA.allBooks}" var="book">
+        <h:column>
+            <c:facet name="header">Id</c:facet>
+            #{book.id}
+        </h:column>
+
+        <h:column>
+            <c:facet name="header">Name</c:facet>
+            #{book.name}
+        </h:column>
+
+        <h:column>
+            <c:facet name="header">Author id</c:facet>
+            #{book.author.id}
+        </h:column>
+        <h:column>
+            <c:facet name="header">Author's name</c:facet>
+            #{book.author.name}
+        </h:column>
+        <h:column>
+            <c:facet name="header">Author's lastName</c:facet>
+            #{book.author.lastName}
+        </h:column>
+
+        <h:column>
+            <c:facet name="header">Library id</c:facet>
+            #{book.library.id}
+        </h:column>
+        <h:column>
+            <c:facet name="header">Library name</c:facet>
+            #{book.library.name}
+        </h:column>
+    </h:dataTable>
+
+    <nav>
+        <h:link outcome="create-book">Create new book</h:link>
+    </nav>
+</h:body>
+
+</html>

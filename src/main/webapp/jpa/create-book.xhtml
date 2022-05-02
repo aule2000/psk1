@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+    <title>Create a new book</title>
+</h:head>
+
+<h:body>
+    <h1>Create a new book</h1>
+    <nav>
+        <h:link outcome="/index">Home</h:link>
+    </nav>
+    <h:form>
+        <div>
+            <h:outputLabel for="name">Name of the Book: </h:outputLabel>
+            <h:inputText id="name" value="#{booksJPA.bookToCreate.name}" required="true"/>
+        </div>
+        <div>
+            <h:outputLabel for="library">Library name: </h:outputLabel>
+            <h:selectOneMenu id="library" value="#{booksJPA.bookToCreate.library.id}" required="true">
+                <c:forEach items="#{booksJPA.allLibraries}" var="library">
+                    <f:selectItem itemValue="#{library.id}" itemLabel="#{library.name}"/>
+                </c:forEach>
+            </h:selectOneMenu>
+        </div>
+        <div>
+            <h:outputLabel for="author">Book author </h:outputLabel>
+            <h:selectOneMenu id="author" value="#{booksJPA.bookToCreate.author.id}" required="true">
+                <c:forEach items="#{authorsJPA.allAuthors}" var="author">
+                    <f:selectItem itemValue="#{author.id}" itemLabel="#{author.fullAuthorName}"  />
+
+                </c:forEach>
+            </h:selectOneMenu>
+        </div>
+        <h:commandButton value="Add new book" actionListener="#{booksJPA.createBook}"
+                         action="books?faces-redirect=true"/>
+    </h:form>
+</h:body>
+
+</html>
