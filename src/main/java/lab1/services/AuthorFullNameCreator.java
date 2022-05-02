@@ -9,7 +9,7 @@ public class AuthorFullNameCreator implements Serializable {
     /**
      * Assigns full author name based on author name and author lastName (JPA version).
      *
-     * @param author city to which full names should be assigned
+     * @param author --> full names should be assigned
      */
     public void createFullAuthorName(Author author) {
         if (author == null) {
@@ -30,7 +30,7 @@ public class AuthorFullNameCreator implements Serializable {
     /**
      * Assigns full author name based on author name and author lastName (MyBatis version).
      *
-     * @param author city to which full names should be assigned
+     * @param author --> full names should be assigned
      */
     public void createFullAuthorName(lab1.mybatis.model.Author author) {
         if (author == null) {

@@ -21,7 +21,7 @@ public class Author {
     private int id;
 
     private String name;
-    private String lastName;        //added
+    private String lastName;
 
     @Column(name = "full_author_name", nullable = false)
     private String fullAuthorName;
