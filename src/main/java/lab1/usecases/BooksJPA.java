@@ -40,9 +40,17 @@ public class BooksJPA {
     public Book findById(int id) {
         return books.findById(id);
     }
+    public List<Book> findByAuthorId(int authorId) {
+        return books.findByAuthorId(authorId);
+    }
+
+        public int getBooks(int authorId){
+        return findByAuthorId(authorId).size();
+    }
 
     @Transactional
     public void createBook() {
+
         int id = bookToCreate.getLibrary().getId();
         Library library = librariesDAO.findById(id);
         library.getAuthorsWithBooks().add(bookToCreate.getAuthor());
@@ -54,4 +62,5 @@ public class BooksJPA {
         allBooks = books.loadAll();
         allLibraries = librariesDAO.loadAll();
     }
+
 }

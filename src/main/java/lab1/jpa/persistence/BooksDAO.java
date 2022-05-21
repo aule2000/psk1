@@ -1,5 +1,6 @@
 package lab1.jpa.persistence;
 
+import lab1.jpa.entities.Author;
 import lab1.jpa.entities.Book;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -17,6 +18,11 @@ public class BooksDAO {
     public List<Book> loadAll() {
         return em.createNamedQuery("Book.findAll", Book.class).getResultList();
     }
+    public List<Book> findByAuthorId(int authorId) {
+        return em.createNamedQuery("Book.findByAuthorId", Book.class).
+                setParameter("author", authorId).
+                getResultList();
+    }
 
     public void persist(Book book) {
         em.persist(book);
@@ -25,4 +31,6 @@ public class BooksDAO {
     public Book findById(int id) {
         return em.find(Book.class, id);
     }
+
+
 }

@@ -31,7 +31,14 @@
             <c:facet name="header">LastName</c:facet>
             #{author.lastName}
         </h:column>
+        <h:column>
+            <c:facet name="header">Books</c:facet>
+            #{booksJPA.getBooks(author.id)}
+        </h:column>
+
     </h:dataTable>
+
+
 
     <nav>
         <h:link outcome="create-author">Create new author</h:link>

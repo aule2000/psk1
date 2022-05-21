@@ -5,10 +5,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Book.findAll", query = "select s from Book s")
+        @NamedQuery(name = "Book.findAll", query = "select s from Book s"),
+        @NamedQuery(name = "Book.findByAuthorId", query = "select s from Book s where s.author.id =: author ")
 })
 @Getter
 @Setter
@@ -27,6 +29,7 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "library_id", nullable = false)
     private Library library;
+
 
     @Override
     public boolean equals(Object other) {
