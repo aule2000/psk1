@@ -3,7 +3,6 @@ package lab1.usecases;
 
 import lab1.mybatis.dao.AuthorMapper;
 import lab1.mybatis.model.Author;
-import lab1.services.AuthorFullNameCreator;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,9 +21,6 @@ public class AuthorsMyBatis {
     @Setter
     private Author authorToCreate = new Author();
 
-    @Inject
-    private AuthorFullNameCreator authorFullNameCreator;
-
     @Getter
     private List<Author> allAuthors;
 
@@ -39,7 +35,7 @@ public class AuthorsMyBatis {
 
     @Transactional
     public void createAuthor() {
-        authorFullNameCreator.createFullAuthorName(authorToCreate);
+//        authorFullNameCreator.createFullAuthorName(authorToCreate);
         authorMapper.insert(authorToCreate);
     }
 

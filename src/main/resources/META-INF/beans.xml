@@ -1,0 +1,13 @@
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_2_0.xsd" bean-discovery-mode="all" version="2.0">
+    <interceptors>
+        <class>lab1.jpa.interceptors.MethodLogger</class>
+    </interceptors>
+    <decorators>
+        <class>lab1.jpa.decorators.LibraryNameDecorator</class>
+    </decorators>
+    <alternatives>
+        <class>lab1.jpa.alternatives.AuthorFullNameCreator</class>
+    </alternatives>
+</beans>

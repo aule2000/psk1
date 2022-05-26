@@ -30,6 +30,11 @@
         </h:column>
 
         <h:column>
+            <c:facet name="header">ISBN code</c:facet>
+            #{book.isbnCode}
+        </h:column>
+
+        <h:column>
             <c:facet name="header">Author id</c:facet>
             #{book.author.id}
         </h:column>

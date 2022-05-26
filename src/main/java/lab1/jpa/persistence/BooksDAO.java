@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @ApplicationScoped
-public class BooksDAO {
+public class BooksDAO{
     @Inject
     private EntityManager em;
 
@@ -26,9 +26,16 @@ public class BooksDAO {
 
     public void persist(Book book) {
         em.persist(book);
+        em.flush();
     }
 
-    public Book findById(int id) {
+    public Book update(Book book){
+        Book b = em.merge(book);
+        em.flush();
+        return b;
+    }
+
+    public Book findById(long id) {
         return em.find(Book.class, id);
     }
 

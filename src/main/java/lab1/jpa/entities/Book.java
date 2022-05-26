@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @NamedQueries({
@@ -18,7 +17,7 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     private String name;
 
@@ -30,6 +29,13 @@ public class Book {
     @JoinColumn(name = "library_id", nullable = false)
     private Library library;
 
+
+    @Column(name = "isbn_code")
+    private long isbnCode;
+
+    @Version
+    @Column(name = "opt_lock_version")
+    private int optLockVersion;
 
     @Override
     public boolean equals(Object other) {

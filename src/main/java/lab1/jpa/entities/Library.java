@@ -30,6 +30,10 @@ public class Library {
     @ManyToMany
     private Set<Author> authorsWithBooks = new HashSet<>();
 
+    @Version
+    @Column(name = "opt_lock_version")
+    private int optLockVersion;
+
     @Override
     public boolean equals(Object other) {
         if (other == null) {

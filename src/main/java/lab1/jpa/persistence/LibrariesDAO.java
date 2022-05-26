@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @ApplicationScoped
-public class LibrariesDAO {
+public class LibrariesDAO{
     @Inject
     private EntityManager em;
 

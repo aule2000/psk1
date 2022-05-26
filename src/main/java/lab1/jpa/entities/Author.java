@@ -32,6 +32,10 @@ public class Author {
     @ManyToMany(mappedBy = "authorsWithBooks")
     private Set<Library> libraries;
 
+    @Version
+    @Column(name = "opt_lock_version")
+    private int optLockVersion;
+
     @Override
     public boolean equals(Object other) {
         if (other == null) {

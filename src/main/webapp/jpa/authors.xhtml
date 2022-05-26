@@ -32,16 +32,23 @@
             #{author.lastName}
         </h:column>
         <h:column>
-            <c:facet name="header">Books</c:facet>
-            #{booksJPA.getBooks(author.id)}
+            <c:facet name="header">FullName</c:facet>
+            #{author.fullAuthorName}
         </h:column>
+<!--        <h:column>-->
+<!--            <c:facet name="header">Books</c:facet>-->
+<!--            #{booksJPA.getBooks(author.id)}-->
+<!--        </h:column>-->
 
     </h:dataTable>
 
 
 
+
     <nav>
         <h:link outcome="create-author">Create new author</h:link>
+        <br></br>
+        <h:link outcome="edit-author">Edit the first author</h:link><br/>
     </nav>
 
 </h:body>

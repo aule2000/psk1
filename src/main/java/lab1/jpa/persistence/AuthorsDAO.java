@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @ApplicationScoped
-public class AuthorsDAO {
+public class AuthorsDAO{
     @Inject
     private EntityManager em;
 
@@ -18,6 +18,13 @@ public class AuthorsDAO {
 
     public void persist(Author author) {
         em.persist(author);
+        em.flush();
+    }
+
+    public Author update(Author author){
+        Author a = em.merge(author);
+        em.flush();
+        return a;
     }
 
     public Author findById(int id) {

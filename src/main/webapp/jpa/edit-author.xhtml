@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Edit the first author</title>
+</h:head>
+
+<h:body>
+    <h1>Edit the first author</h1>
+    <nav>
+        <h:link outcome="/index">Home</h:link>
+    </nav>
+    <h:form>
+        <div>
+            <h:outputLabel for="name">Name of the author: </h:outputLabel>
+            <h:inputText id="name" value="#{authorsJPA.authorToEdit.name}" required="true"/>
+        </div>
+        <div>
+            <h:outputLabel for="lastName">LastName of the author</h:outputLabel>
+            <h:inputText id="lastName" value="#{authorsJPA.authorToEdit.lastName}" required="true"/>
+        </div>
+
+        <h:commandButton value="Save changes" action="#{authorsJPA.saveAuthorChanges}"/>
+
+        <h:outputText value="Value was already modified by other user. If you want to override it - try again" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
+    </h:form>
+</h:body>
+
+</html>

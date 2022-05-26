@@ -17,7 +17,14 @@
             <h:inputText id="name" value="#{librariesJPA.libraryToCreate.name}" required="true"/>
         </div>
         <h:commandButton value="Add new library" actionListener="#{librariesJPA.createLibrary}"
-                         action="/index?faces-redirect=true"/>
+                         action="/jpa/libraries?faces-redirect=true"/>
+    </h:form>
+    <h:form>
+        <h:commandButton value="Suggest address name"
+                         disabled="#{countryAndPostalCodeGenerator.nameGenerationRunning}"
+                         actionListener="#{countryAndPostalCodeGenerator.generateNewAddressName}"/>
+        <h:commandButton rendered="#{countryAndPostalCodeGenerator.nameGenerationRunning}" value="Refresh" />
+        <h:outputText value=" #{countryAndPostalCodeGenerator.countryAndPostalCodeNameGenerationStatus}" />
     </h:form>
 </h:body>
 
